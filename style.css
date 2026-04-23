@@ -1,32 +1,37 @@
 :root {
-    --primary-color: #00a859;
-    /* Verde farmacia */
-    --secondary-color: #0056b3;
-    /* Azul médico */
-    --light-bg: #f8f9fa;
+    --inkafarma-yellow: #ffcc00;
+    /* Amarillo Inkafarma */
+    --inkafarma-red: #e4002b;
+    /* Rojo acento */
+    --inkafarma-blue: #004a99;
+    /* Azul para textos/iconos */
+    --light-bg: #f2f2f2;
     --white: #ffffff;
     --text-dark: #333;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light-bg);
 }
 
 /* Contenedor principal del header */
 .main-header {
-    background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--inkafarma-yellow);
     width: 100%;
+    border-bottom: 3px solid var(--inkafarma-red);
 }
 
-/* Barra superior (Top bar) */
+/* Barra superior (Información) */
 .top-bar {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 8px 20px;
-    font-size: 14px;
-    text-align: center;
+    background-color: var(--white);
+    color: var(--inkafarma-blue);
+    padding: 5px 20px;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
 }
 
 /* Contenedor central */
@@ -34,76 +39,120 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 5%;
+    padding: 10px 5%;
     gap: 20px;
 }
 
-/* Logo */
+/* Logo Inkafarma */
 .logo {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 24px;
-    color: var(--primary-color);
+    flex-direction: column;
+    align-items: flex-start;
     text-decoration: none;
 }
 
-.logo svg {
-    width: 40px;
-    height: 40px;
+.logo-main {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--inkafarma-red);
+    font-style: italic;
+    line-height: 0.8;
+    letter-spacing: -1px;
+}
+
+.logo-sub {
+    font-size: 12px;
+    color: var(--inkafarma-blue);
+    font-weight: bold;
+    margin-top: 5px;
+    letter-spacing: 1px;
 }
 
 /* Barra de búsqueda */
 .search-container {
     flex-grow: 1;
-    max-width: 500px;
-    position: relative;
+    max-width: 600px;
+    display: flex;
 }
 
 .search-container input {
     width: 100%;
-    padding: 10px 15px;
-    border: 2px solid #ddd;
-    border-radius: 25px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px 0 0 5px;
     outline: none;
-    transition: border-color 0.3s;
+    font-size: 14px;
 }
 
-.search-container input:focus {
-    border-color: var(--primary-color);
+.search-btn {
+    background-color: var(--inkafarma-red);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-/* Navegación */
-.nav-menu {
+/* Navegación y Acciones */
+.nav-actions {
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    align-items: center;
+}
+
+.action-item {
+    text-align: center;
+    text-decoration: none;
+    color: var(--inkafarma-blue);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.action-icon {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+/* Menú de categorías (Barra inferior del header) */
+.category-bar {
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
     list-style: none;
     margin: 0;
-    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.nav-menu a {
+.category-bar a {
     text-decoration: none;
     color: var(--text-dark);
+    font-size: 14px;
     font-weight: 500;
-    transition: color 0.3s;
 }
 
-.nav-menu a:hover {
-    color: var(--primary-color);
+.category-bar a:hover {
+    color: var(--inkafarma-red);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
+        padding: 15px;
     }
 
-    .nav-menu {
-        width: 100%;
-        justify-content: center;
-        border-top: 1px solid #eee;
-        padding-top: 10px;
+    .nav-actions {
+        display: none;
+        /* Simplificado para móvil */
+    }
+
+    .category-bar {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 20px;
     }
 }
