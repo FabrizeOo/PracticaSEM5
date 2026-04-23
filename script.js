@@ -202,12 +202,20 @@ function quickAddToCart(productId) {
 // Lógica principal de agregar al carrito
 function addToCart(productId, quantity) {
     const product = products.find(p => p.id === productId);
-    if (!product) return;
+    if (!product) {
+        showNotification('Producto no encontrado', 'error');
+        return;
+    }
 
     // Validar stock
     const requestedQty = parseInt(quantity) || 1;
+    if (requestedQty <= 0) {
+        showNotification('Cantidad debe ser mayor a 0', 'error');
+        return;
+    }
+    
     if (requestedQty > product.stock) {
-        alert(`Stock insuficiente. Disponibles: ${product.stock}`);
+        showNotification(`Stock insuficiente. Disponibles: ${product.stock}`, 'error');
         return;
     }
 
@@ -216,7 +224,7 @@ function addToCart(productId, quantity) {
     if (cartItem) {
         const newQty = cartItem.quantity + requestedQty;
         if (newQty > product.stock) {
-            alert(`Stock insuficiente. Disponibles: ${product.stock}. Ya tienes ${cartItem.quantity} en el carrito.`);
+            showNotification(`Stock insuficiente. Ya tienes ${cartItem.quantity} en el carrito.`, 'error');
             return;
         }
         cartItem.quantity = newQty;
@@ -232,7 +240,7 @@ function addToCart(productId, quantity) {
 
     saveCartToLocalStorage();
     updateCartUI();
-    showNotification(`${product.name} agregado al carrito`);
+    showNotification(`✓ ${product.name} agregado al carrito`, 'success');
 }
 
 // Eliminar producto del carrito
@@ -280,24 +288,32 @@ function loadCartFromLocalStorage() {
     }
 }
 
-// Notificación simple
-function showNotification(message) {
+// Notificación simple mejorada
+function showNotification(message, type = 'success') {
     // Crear elemento temporal
     const notification = document.createElement('div');
     notification.textContent = message;
+    const bgColor = type === 'success' ? '#27ae60' : type === 'error' ? '#e74c3c' : '#3498db';
+    const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+    notification.innerHTML = `${icon} ${message}`;
     notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        background-color: #27ae60;
+        background-color: ${bgColor};
         color: white;
         padding: 15px 20px;
         border-radius: 4px;
         z-index: 2000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         animation: slideIn 0.3s ease;
+        font-weight: 500;
     `;
     document.body.appendChild(notification);
-    setTimeout(() => notification.remove(), 2000);
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 2500);
 }
 
 // Configurar event listeners
