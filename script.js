@@ -107,6 +107,105 @@ const products = [
         stock: 70,
         emoji: "😷",
         description: "Hipoalergénica de 3 capas. Protección respiratoria. Caja con 50 unidades."
+    },
+    {
+        id: 13,
+        name: "Amoxicilina 500mg",
+        category: "analgesicos",
+        price: 18.50,
+        stock: 30,
+        emoji: "💊",
+        description: "Antibiótico penicilina. Trata infecciones bacterianas. Caja con 20 cápsulas."
+    },
+    {
+        id: 14,
+        name: "Diclofenaco 50mg",
+        category: "analgesicos",
+        price: 14.75,
+        stock: 40,
+        emoji: "💊",
+        description: "Antiinflamatorio potente. Alivia dolores agudos y artritis. Blíster con 10 tabletas."
+    },
+    {
+        id: 15,
+        name: "Calcio + Vitamina D",
+        category: "vitaminas",
+        price: 25.00,
+        stock: 50,
+        emoji: "🥛",
+        description: "Fortalece huesos y dientes. Previene osteoporosis. Frasco con 60 cápsulas."
+    },
+    {
+        id: 16,
+        name: "Hierro 325mg",
+        category: "vitaminas",
+        price: 16.99,
+        stock: 35,
+        emoji: "🔗",
+        description: "Combate la anemia ferropénica. Aumenta energía. Caja con 30 tabletas."
+    },
+    {
+        id: 17,
+        name: "Probióticos",
+        category: "vitaminas",
+        price: 32.50,
+        stock: 28,
+        emoji: "🦠",
+        description: "Mejora salud digestiva e inmunidad. 10 millones de UFC. Frasco con 30 cápsulas."
+    },
+    {
+        id: 18,
+        name: "Crema Hidratante Facial",
+        category: "cuidado",
+        price: 24.90,
+        stock: 45,
+        emoji: "🧴",
+        description: "Hidratación profunda para piel seca. Sin parabenos. Tarro 50ml."
+    },
+    {
+        id: 19,
+        name: "Ungüento Cicatrizante",
+        category: "cuidado",
+        price: 11.50,
+        stock: 55,
+        emoji: "🩹",
+        description: "Promueve cicatrización rápida de heridas. Antibacterial. Tubo 30g."
+    },
+    {
+        id: 20,
+        name: "Colirio Oftalmológico",
+        category: "cuidado",
+        price: 14.00,
+        stock: 32,
+        emoji: "👁️",
+        description: "Lubrica y descansa ojos irritados. Alivio rápido. Frasco 10ml."
+    },
+    {
+        id: 21,
+        name: "Pastillas para la Garganta",
+        category: "analgesicos",
+        price: 6.99,
+        stock: 80,
+        emoji: "🍬",
+        description: "Alivia dolor de garganta y tos. Sabor a menta. Caja con 20 pastillas."
+    },
+    {
+        id: 22,
+        name: "Multivitamínico Diario",
+        category: "vitaminas",
+        price: 29.99,
+        stock: 60,
+        emoji: "🌈",
+        description: "Complejo de 13 vitaminas y minerales. Salud integral. Frasco con 90 tabletas."
+    },
+    {
+        id: 23,
+        name: "Vaselina 100% Pura",
+        category: "cuidado",
+        price: 5.50,
+        stock: 120,
+        emoji: "💧",
+        description: "Hidrata y protege piel y labios. Uso múltiple. Tarro 100g."
     }
 ];
 
