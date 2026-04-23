@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia InkaSalud - Productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <header class="header">
+        <div class="container">
+            <h1>Farmacia InkaSalud</h1>
+            <p>Tus medicinas y productos de salud en un solo lugar</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sidebar con categorías (placeholder) -->
+            <aside class="sidebar">
+                <h3>Categorías</h3>
+                <ul>
+                    <li><a href="#" data-category="all">Todos</a></li>
+                    <li><a href="#" data-category="analgesicos">Analgésicos</a></li>
+                    <li><a href="#" data-category="vitaminas">Vitaminas</a></li>
+                    <li><a href="#" data-category="cuidado">Cuidado Personal</a></li>
+                </ul>
+            </aside>
+
+            <!-- Productos -->
+            <section class="products-section">
+                <h2>Nuestros Productos</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Los productos se inyectarán aquí con JS -->
+                </div>
+            </section>
+
+            <!-- Carrito -->
+            <aside class="cart-sidebar">
+                <div class="cart-header">
+                    <h3>Carrito</h3>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-cart">El carrito está vacío</p>
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <strong>Total: S/. <span id="cartTotal">0.00</span></strong>
+                    </div>
+                    <button class="btn btn-primary" id="checkoutBtn">Ir a Pagar</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Modal de Detalles del Producto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p id="modalCategory" class="category-badge"></p>
+                    <p id="modalDescription" class="product-description"></p>
+                    <div class="modal-details">
+                        <p><strong>Stock:</strong> <span id="modalStock"></span> unidades</p>
+                        <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
+                    </div>
+                    <div class="quantity-selector">
+                        <label for="quantity">Cantidad:</label>
+                        <input type="number" id="quantity" min="1" value="1">
+                    </div>
+                    <button class="btn btn-primary" id="addToCartBtn">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <footer class="footer">
+        <p>&copy; 2026 Farmacia InkaSalud. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
