@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inkafarma - Farmacia Lider en Perú</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
@@ -24,7 +24,7 @@
 
                 <!-- Buscador -->
                 <div class="search-container">
-                    <input type="text" placeholder="¿Qué estás buscando? Ej. Paracetamol">
+                    <input type="text" id="searchInput" placeholder="¿Qué estás buscando? Ej. Paracetamol">
                     <button class="search-btn">BUSCAR</button>
                 </div>
 
@@ -45,18 +45,82 @@
         <!-- Menú de categorías -->
         <nav>
             <ul class="category-bar">
-                <li><a href="#">Medicamentos</a></li>
-                <li><a href="#">Cuidado Personal</a></li>
+                <li><a href="#" data-category="all">Todos</a></li>
+                <li><a href="#" data-category="analgesicos">Analgésicos</a></li>
+                <li><a href="#" data-category="vitaminas">Vitaminas</a></li>
+                <li><a href="#" data-category="cuidado">Cuidado Personal</a></li>
                 <li><a href="#">Mamá y Bebé</a></li>
-                <li><a href="#">Nutrición</a></li>
                 <li><a href="#">Belleza</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="app">
-        <!-- Contenido principal se cargará aquí -->
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sidebar con categorías -->
+            <aside class="sidebar">
+                <h3>Categorías</h3>
+                <ul>
+                    <li><a href="#" data-category="all">Todos</a></li>
+                    <li><a href="#" data-category="analgesicos">Analgésicos</a></li>
+                    <li><a href="#" data-category="vitaminas">Vitaminas</a></li>
+                    <li><a href="#" data-category="cuidado">Cuidado Personal</a></li>
+                </ul>
+            </aside>
+
+            <!-- Productos -->
+            <section class="products-section">
+                <h2>Nuestros Productos</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Los productos se inyectarán aquí con JS -->
+                </div>
+            </section>
+
+            <!-- Carrito -->
+            <aside class="cart-sidebar">
+                <div class="cart-header">
+                    <h3>Carrito</h3>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-cart">El carrito está vacío</p>
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <strong>Total: S/. <span id="cartTotal">0.00</span></strong>
+                    </div>
+                    <button class="btn btn-primary" id="checkoutBtn">Ir a Pagar</button>
+                </div>
+            </aside>
+        </div>
     </main>
+
+    <!-- Modal de Detalles del Producto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <div id="modalImage" style="font-size: 10rem; display: flex; align-items: center; justify-content: center; height: 100%;"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p id="modalCategory" class="category-badge"></p>
+                    <p id="modalDescription" class="product-description"></p>
+                    <div class="modal-details">
+                        <p><strong>Stock:</strong> <span id="modalStock"></span> unidades</p>
+                        <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
+                    </div>
+                    <div class="quantity-selector">
+                        <label for="quantity">Cantidad:</label>
+                        <input type="number" id="quantity" min="1" value="1">
+                    </div>
+                    <button class="btn btn-primary" id="addToCartBtn">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer-inkafarma">
         <div class="footer-container">
@@ -88,5 +152,7 @@
             <p>&copy; 2026 Inkafarma. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

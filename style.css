@@ -1,29 +1,31 @@
 :root {
     --inkafarma-yellow: #ffcc00;
-    /* Amarillo Inkafarma */
     --inkafarma-red: #e4002b;
-    /* Rojo acento */
     --inkafarma-blue: #004a99;
-    /* Azul para textos/iconos */
     --light-bg: #f2f2f2;
     --white: #ffffff;
     --text-dark: #333;
+    --accent-blue: #003087;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-color: var(--light-bg);
+    color: var(--text-dark);
 }
 
-/* Contenedor principal del header */
+/* --- HEADER STYLES --- */
 .main-header {
     background-color: var(--inkafarma-yellow);
     width: 100%;
     border-bottom: 3px solid var(--inkafarma-red);
 }
 
-/* Barra superior (Información) */
 .top-bar {
     background-color: var(--white);
     color: var(--inkafarma-blue);
@@ -34,7 +36,6 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
-/* Contenedor central */
 .header-content {
     display: flex;
     align-items: center;
@@ -43,7 +44,6 @@ body {
     gap: 20px;
 }
 
-/* Logo Inkafarma */
 .logo {
     display: flex;
     flex-direction: column;
@@ -68,7 +68,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Barra de búsqueda */
 .search-container {
     flex-grow: 1;
     max-width: 600px;
@@ -94,7 +93,6 @@ body {
     font-weight: bold;
 }
 
-/* Navegación y Acciones */
 .nav-actions {
     display: flex;
     gap: 15px;
@@ -115,7 +113,6 @@ body {
     margin-bottom: 2px;
 }
 
-/* Menú de categorías (Barra inferior del header) */
 .category-bar {
     background-color: var(--white);
     display: flex;
@@ -138,32 +135,376 @@ body {
     color: var(--inkafarma-red);
 }
 
-/* Responsive Header */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .nav-actions {
-        display: none;
-        /* Simplificado para móvil */
-    }
-
-    .category-bar {
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 10px 20px;
-    }
+/* --- MAIN CONTENT LAYOUT --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* ESTILOS FOOTER INKAFARMA */
+.main-content {
+    padding: 40px 20px;
+    min-height: calc(100vh - 400px);
+}
+
+.main-content .container {
+    display: grid;
+    grid-template-columns: 200px 1fr 300px;
+    gap: 30px;
+}
+
+/* Sidebar - Categorías */
+.sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    color: var(--inkafarma-blue);
+    font-size: 1.1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #555;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0;
+    color: var(--inkafarma-red);
+    font-weight: 600;
+}
+
+/* Products Section */
+.products-section {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.products-section h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Producto Card */
+.product-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 150px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.product-body {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+    height: 2.4em;
+    overflow: hidden;
+}
+
+.product-category {
+    display: inline-block;
+    background-color: var(--inkafarma-blue);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: var(--inkafarma-red);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--inkafarma-red);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #c40025;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--inkafarma-yellow);
+    padding-bottom: 15px;
+}
+
+.cart-header h3 {
+    color: var(--inkafarma-blue);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.cart-count {
+    background-color: var(--inkafarma-red);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #999;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+}
+
+.cart-item {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--inkafarma-red);
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.cart-item-quantity {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.cart-item-price {
+    color: var(--inkafarma-red);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.cart-item-remove {
+    display: block;
+    margin-top: 8px;
+    color: #999;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.cart-item-remove:hover {
+    color: var(--inkafarma-red);
+}
+
+.cart-total {
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #999;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+.modal-image {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-info h2 {
+    margin-top: 0;
+    color: var(--text-dark);
+}
+
+.category-badge {
+    display: inline-block;
+    background-color: var(--inkafarma-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.modal-details {
+    background-color: #f2f2f2;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.quantity-selector input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* --- FOOTER STYLES --- */
 .footer-inkafarma {
-    background-color: #003087; /* Azul Inkafarma */
+    background-color: var(--accent-blue);
     color: #ffffff;
-    font-family: Arial, sans-serif;
     padding: 40px 0 0 0;
-    margin-top: auto; 
+    margin-top: 50px;
 }
 
 .footer-container {
@@ -175,45 +516,63 @@ body {
     padding: 0 20px 20px;
 }
 
-.footer-section {
-    margin-bottom: 20px;
-}
-
 .footer-section h3 {
-    color: #FFC915; /* Amarillo Inkafarma */
+    color: var(--inkafarma-yellow);
     margin-bottom: 15px;
-    font-size: 1.2rem;
 }
 
 .footer-section ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 10px;
+.footer-section li {
+    margin-bottom: 8px;
 }
 
-.footer-section ul li a {
-    color: #ffffff;
+.footer-section a {
+    color: white;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
-.footer-section ul li a:hover {
+.footer-section a:hover {
+    color: var(--inkafarma-yellow);
     text-decoration: underline;
-    color: #FFC915;
-}
-
-.footer-section.contacto p {
-    margin: 5px 0;
-    font-size: 0.95rem;
 }
 
 .footer-bottom {
-    background-color: #002266; /* Azul base oscuro */
+    background-color: #002266;
     text-align: center;
     padding: 15px 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .main-content .container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .main-content .container {
+        grid-template-columns: 1fr;
+    }
+    .modal-body {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    .category-bar {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 20px;
+    }
 }
