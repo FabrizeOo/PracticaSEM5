@@ -138,7 +138,7 @@ body {
     color: var(--inkafarma-red);
 }
 
-/* Responsive */
+/* Responsive Header */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -155,4 +155,65 @@ body {
         justify-content: flex-start;
         padding: 10px 20px;
     }
+}
+
+/* ESTILOS FOOTER INKAFARMA */
+.footer-inkafarma {
+    background-color: #003087; /* Azul Inkafarma */
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding: 40px 0 0 0;
+    margin-top: auto; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #FFC915; /* Amarillo Inkafarma */
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+    color: #FFC915;
+}
+
+.footer-section.contacto p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    background-color: #002266; /* Azul base oscuro */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.85rem;
 }
